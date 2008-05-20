@@ -1,0 +1,28 @@
+Test Barrington Atlas feature label normalization
+=================================================
+
+    >>> from pleiades.normalizer import normalizer
+
+    >>> list(normalizer.normalizeN(u'Tetrapyrgia'))
+    ['tetrapyrgia']
+    
+    >>> list(normalizer.normalizeN(u'Timeles fl. '))
+    ['timeles-fl']
+    
+    >>> list(normalizer.normalizeN(u'*Tyinda'))
+    ['tyinda']
+    
+    >>> list(normalizer.normalizeN(u'[Agrai]'))
+    ['agrai']
+    
+    >>> list(normalizer.normalizeN(u'Kalaba(n)tia'))
+    ['kalabantia']
+    
+    >>> list(normalizer.normalizeN(u'Tripolis ad Maeandrum/Apollonia ad Maeandrum/Antoniopolis'))
+    ['tripolis-ad-maeandrum', 'apollonia-ad-maeandrum', 'antoniopolis']
+   
+    >>> list(normalizer.normalizeN(unicode('Ağva', 'utf-8')))
+    ['agva']
+
+    >>> list(normalizer.normalizeN(unicode('Çaykenarı', 'utf-8')))
+    ['caykenari']
