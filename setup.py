@@ -1,17 +1,17 @@
 from setuptools import setup, find_packages
 
 version = '0.1'
+readme = open('README.txt', 'rb').read()
 
 setup(name='pleiades.normalizer',
       version=version,
-      description="",
-      long_description="""\
-""",
+      description="Normalize Latin labels of the Barrington Atlas to ASCII",
+      long_description=readme
       classifiers=[
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
-      keywords='',
+      keywords='latin unicode normalization',
       author='Sean Gillies',
       author_email='sgillies@frii.com',
       url='',
