@@ -6,7 +6,7 @@ readme = open('README.txt', 'rb').read()
 setup(name='pleiades.normalizer',
       version=version,
       description="Normalize Latin labels of the Barrington Atlas to ASCII",
-      long_description=readme
+      long_description=readme,
       classifiers=[
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
@@ -20,6 +20,7 @@ setup(name='pleiades.normalizer',
       namespace_packages=['pleiades'],
       include_package_data=True,
       zip_safe=False,
+      test_suite='pleiades.normalizer.tests.test_suite',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
