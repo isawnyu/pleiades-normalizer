@@ -26,3 +26,7 @@ Test Barrington Atlas feature label normalization
 
     >>> list(normalizer.normalizeN(unicode('Çaykenarı', 'utf-8')))
     ['caykenari']
+    
+    >>> list(normalizer.normalizeN(unicode('‘Iotana’', 'utf-8')))
+    ['iotana']
+

@@ -14,7 +14,7 @@ mapping = {
 235 : 'e', 236 : 'i', 237 : 'i', 238 : 'i', 239 : 'i', 240 : 'd', 241 : 'n',
 242 : 'o', 243 : 'o', 244 : 'o', 245 : 'o', 246 : 'o', 248 : 'o', 249 : 'u',
 250 : 'u', 251 : 'u', 252 : 'u', 253 : 'y', 255 : 'y',
-305 : 'i'
+305 : 'i', 8216 : '\'', 8217 : '\''
 }
 
 # On OpenBSD string.whitespace has a non-standard implementation
