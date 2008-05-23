@@ -28,7 +28,11 @@ NON_WORD_REGEX = re.compile(r"[\W\-]+")
 DANGEROUS_CHARS_REGEX = re.compile(r"[!#$%&()*+,/:;<=>?@\\^_{|}\[\]~]+")
 MULTIPLE_DASHES_REGEX = re.compile(r"\-+")
 EXTRA_DASHES_REGEX = re.compile(r"(^\-+)|(\-+$)")
+RIVER_REGEX = re.compile(r" fl\.$")
+ISLAND_REGEX = re.compile(r" Ins\.$", re.I)
+ISLAND_GROUP_REGEX = re.compile(r" Inss\.$", re.I)
 MAX_LENGTH = 120
+
 
 def cropName(base, maxLength=MAX_LENGTH):
     baseLength = len(base)
@@ -100,7 +104,17 @@ class BAtlasNormalizer(object):
     def normalizeN(self, label):
         """Returns a normalized text. text has to be a unicode string.
         """
+        suffix = None
+        for re in [RIVER_REGEX, ISLAND_REGEX, ISLAND_GROUP_REGEX]:
+            m = re.search(label)
+            if m:
+                suffix = m.group()
+                label = re.sub('', label)
+                break
+
         for text in label.split('/'):
+            if suffix is not None:
+                text = text + suffix
             text = baseNormalize(text)
             base = text.lower()
             base = IGNORE_REGEX.sub('', base)

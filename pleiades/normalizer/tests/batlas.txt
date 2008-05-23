@@ -3,6 +3,8 @@ Test Barrington Atlas feature label normalization
 
     >>> from pleiades.normalizer import normalizer
 
+Simple tests
+
     >>> list(normalizer.normalizeN(u'Tetrapyrgia'))
     ['tetrapyrgia']
     
@@ -17,16 +19,32 @@ Test Barrington Atlas feature label normalization
     
     >>> list(normalizer.normalizeN(u'Kalaba(n)tia'))
     ['kalabantia']
-    
+   
+Multiple names
+
     >>> list(normalizer.normalizeN(u'Tripolis ad Maeandrum/Apollonia ad Maeandrum/Antoniopolis'))
     ['tripolis-ad-maeandrum', 'apollonia-ad-maeandrum', 'antoniopolis']
-   
+
+Multiply-named rivers, islands, island groups
+
+    >>> list(normalizer.normalizeN(u'Foo/Bar fl.'))
+    ['foo-fl', 'bar-fl']
+    
+    >>> list(normalizer.normalizeN(u'Foo/Bar Ins.'))
+    ['foo-ins', 'bar-ins']
+
+    >>> list(normalizer.normalizeN(u'Foo/Bar Inss.'))
+    ['foo-inss', 'bar-inss']
+
+Non-ASCII characters
+
     >>> list(normalizer.normalizeN(unicode('Ağva', 'utf-8')))
     ['agva']
 
     >>> list(normalizer.normalizeN(unicode('Çaykenarı', 'utf-8')))
     ['caykenari']
-    
+
+Non-ASCII punctuation
+
     >>> list(normalizer.normalizeN(unicode('‘Iotana’', 'utf-8')))
     ['iotana']
-
